@@ -1,0 +1,28 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* @font-face {
+  font-family: "semi";
+  src: url("/public/Fonts/sequel-100-black-45.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+} */
+@font-face {
+  font-family: "avenir";
+  src: url("/public/Fonts/AvenirLTStd-Medium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "light";
+  src: url("/public/Fonts/Sequel\ Sans\ Light\ Body.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  font-family: "light";
+}
+.semi {
+  font-family: "Avenir";
+}
