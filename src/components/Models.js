@@ -45,7 +45,7 @@ const Models = () => {
                     name="model"
                     className="flex text-lg  font-semibold items-center"
                   >
-                    selectionez
+                    sélectionnez
                     <RiArrowRightSLine
                       size={23}
                       className="fill-[#FFBA00] pt-1"
