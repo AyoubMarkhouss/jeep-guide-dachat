@@ -19,7 +19,7 @@ const Merci = () => {
         top: mapClicked ? "10%" : "100%",
         opacity: mapClicked ? 1 : 0,
       }}
-      className="md:w-fit w-full z-40 md:mx-20 mt-6 md:mt-0 py-10 lg:py-0"
+      className="md:w-fit z-40 md:mx-20 mt-6 md:mt-0 py-10 lg:py-0 bg-white w-screen h-screen"
     >
       <div className="md:pl-0 px-5">
         <h1 className="semi text-2xl text-center md:text-3xl pb-5">

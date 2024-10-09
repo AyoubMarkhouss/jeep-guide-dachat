@@ -47,7 +47,7 @@ const Map = ({ done, city }) => {
                 <p className="semi pb-5">{bb.name}</p>
                 <p className="text-sm pb-5 flex items-center gap-x-2">
                   <FaLocationDot />
-                  {bb.city}
+                  {bb.address}
                 </p>
                 <p className="pb-5 flex items-center gap-x-2">
                   <IoMdCall />
