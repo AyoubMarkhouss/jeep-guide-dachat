@@ -4,9 +4,11 @@ import { mapStore } from "../store/map";
 import { useInfoStore } from "../store/carInfo";
 import { RiArrowRightSLine } from "react-icons/ri";
 
-const Merci = () => {
+const Merci = ({ fullName }) => {
   const { mapClicked } = mapStore();
   const { prénom, nom, label, address } = useInfoStore();
+  const searchParams = window.location.search;
+  console.log(searchParams);
   return (
     <motion.div
       initial={{
@@ -23,7 +25,7 @@ const Merci = () => {
     >
       <div className="md:pl-0 px-5">
         <h1 className="semi text-2xl text-center md:text-3xl pb-5">
-          Merci {prénom} {nom} de l&apos;intérêt que vous portez à notre marque.
+          Merci {fullName} de l&apos;intérêt que vous portez à notre marque.
         </h1>
         <p className="semi text-center">Votre demande a été enregistrée.</p>
         <br />

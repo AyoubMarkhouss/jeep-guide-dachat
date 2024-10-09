@@ -17,8 +17,22 @@ const Index = () => {
   const dealers = searchParams
     ? searchParams?.split("=")?.[1].split("&&")?.[0]
     : "";
-  const city = searchParams.split("=")[2];
-  console.log(city);
+  const city = searchParams.split("=")[2].split("&&")[0];
+  const firstName = searchParams
+    ? searchParams
+        .split("&&")
+        .filter((first) => first.includes("firstName"))[0]
+        .split("=")[1]
+    : "";
+  const lastName = searchParams
+    ? searchParams
+        .split("&&")
+        .filter((first) => first.includes("lastName"))[0]
+        .split("=")[1]
+    : "";
+
+  const fullName = `${lastName} ${firstName}`;
+  console.log(fullName);
   return (
     <div className="relative bg-white">
       <div
@@ -37,7 +51,7 @@ const Index = () => {
         {dealers === "dealers" && !mapClicked && (
           <Dealers city={city} done={dealers === "dealers"} />
         )}
-        {mapClicked && <Merci />}
+        {mapClicked && <Merci fullName={fullName} />}
       </div>
     </div>
   );

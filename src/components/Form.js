@@ -26,6 +26,8 @@ const Form = () => {
     updateDone,
     setMap,
     address,
+    nom,
+    prénom,
   } = useInfoStore();
   console.log(address);
   const fixedData = citiesData.map((items) => items.city);
@@ -142,15 +144,16 @@ const Form = () => {
           <input
             type="hidden"
             name="retURL"
-            value={`https://jeep-guide-dachat.vercel.app?step=dealers&&city=${address}`}
+            value={`https://jeep-guide-dachat.vercel.app?step=dealers&&city=${address}&&firstName=${prénom}&&lastName=${nom}`}
           />
-
+          {/* 
           <input type="hidden" name="debug" value="1" />
+
           <input
             type="hidden"
             name="debugEmail"
             value="ayoub.markhouss@gmail.com"
-          />
+          /> */}
           <input type="hidden" name="oid" value="00D8d000009q2y7" />
 
           <input
