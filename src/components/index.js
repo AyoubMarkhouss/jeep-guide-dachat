@@ -7,11 +7,15 @@ import { useCarStore } from "../store/car";
 import { useInfoStore } from "../store/carInfo";
 import Merci from "./Merci";
 import { mapStore } from "../store/map";
+import { useSearchParams } from "next/navigation";
 
 const Index = () => {
   const { done, map } = useInfoStore();
   const { mapClicked } = mapStore();
   const { car } = useCarStore();
+  const searchParams = useSearchParams();
+
+  const search = searchParams.get("step");
 
   return (
     <div className="relative bg-white">
@@ -28,7 +32,7 @@ const Index = () => {
         {/* <Steps /> */}
         {car === "" && <Models />}
         {!done && <Form />}
-        {!mapClicked && <Dealers />}
+        {search === "dealers" && <Dealers />}
         {mapClicked && <Merci />}
       </div>
     </div>

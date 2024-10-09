@@ -34,12 +34,15 @@ const Form = () => {
       : fixedData.filter((person) => {
           return person.toLowerCase().includes(query.toLowerCase());
         });
-  console.log(query);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
 
     const formData = new FormData(form);
+    // for (let [key, value] of formData.entries()) {
+    //   console.log(`${key}: ${value}`);
+    // }
 
     try {
       const response = await fetch(form.action, {
@@ -49,7 +52,8 @@ const Form = () => {
       });
 
       if (response.ok || response.type === "opaque") {
-        // alert("Form submitted successfully!");
+        alert("Form submitted successfully!");
+
         updateDone(true);
       } else {
         alert("Form submission failed.");
@@ -59,6 +63,43 @@ const Form = () => {
       alert("Form submission failed.");
     }
   };
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   const form = event.target;
+
+  //   // Collect form data into an object
+  //   const formData = new FormData(form);
+  //   const data = {};
+  //   for (let [key, value] of formData.entries()) {
+  //     data[key] = value;
+  //     console.log(`${key}: ${value}`);
+  //   }
+
+  //   try {
+  //     const response = await fetch("http://localhost:5000/api/submit", {
+  //       // Change form.action to your API endpoint
+  //       method: "POST", // You can also use form.method if you want to keep it dynamic
+  //       headers: {
+  //         "Content-Type": "application/json", // Set the appropriate headers for JSON
+  //       },
+  //       body: JSON.stringify(data), // Send the JSON-serialized data
+  //     });
+
+  //     if (response.ok) {
+  //       alert("Form submitted successfully!");
+  //       updateDone(true);
+  //     } else {
+  //       const errorText = await response.text();
+  //       console.error("Error response:", errorText);
+  //       alert("Form submission failed: " + errorText);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //     alert("Form submission failed.");
+  //   }
+  // };
+
   return (
     <motion.div
       initial={{
@@ -92,13 +133,24 @@ const Form = () => {
       </div>
       <div className="col-span-3 md:col-span-2">
         <form
-          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
           // action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&amp;orgId=00D8d000009q2y7"
           action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D8d000009q2y7"
           method="POST"
         >
+          <input
+            type="hidden"
+            name="retURL"
+            value="https://jeep-guide-dachat.vercel.app?step=dealers"
+          />
+          {/* <input type="hidden" name="debug" value="1" /> */}
+          <input
+            type="hidden"
+            name="debugEmail"
+            value="mohamed.cherkaoui@nbs-consulting.net"
+          />
           <input type="hidden" name="oid" value="00D8d000009q2y7" />
-          <input type="hidden" name="retURL" value="" />
+
           <input
             id="00N8d00000UVYP7"
             name="00N8d00000UVYP7"
@@ -250,54 +302,8 @@ const Form = () => {
                 </div>
               )}
             </div>
-            {/* <select
-              name="Moyenne"
-              id="Moyenne"
-              onChange={(e) => updateCallType(e.target.value)}
-              className="semi bg-[#F4F4F4] border border-black h-12 pl-3"
-            >
-              <option hidden className="pl-2" value="">
-                MOYEN DE CONTACT SOUHAITÉ
-              </option>
-              <option className="semi" value="Telephone">
-                TÉLÉPHONE
-              </option>
-              <option className="semi" value="Appel video">
-                APPÉL VIDEO
-              </option>
-            </select> */}
           </div>
 
-          {/* <div className="pt-10">
-            <label className="semi text-sm">
-              ÊTES-VOUS PARTICULIER OU PROFESSIONNEL ?
-            </label>
-            <div className="flex flex-col md:flex-row pt-3">
-              <div className="flex items-center">
-                <input
-                  onClick={() => updateSiren(true)}
-                  value="particulier"
-                  type="radio"
-                  name="Siren"
-                  className="relative float-left  h-5 w-5 appearance-none rounded-full border-2 border-solid border-secondary-500 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-checkbox before:shadow-transparent before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-black checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-black/60 focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-checkbox checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] rtl:float-right dark:border-neutral-400 dark:checked:border-primary"
-                />
-                <label className="semi pl-2">PARTICULIER</label>
-              </div>
-              <div className="flex items-center md:pl-20">
-                <input
-                  onClick={() => updateSiren(false)}
-                  type="radio"
-                  name="Siren"
-                  value="PROFESSIONNEL"
-                  className="relative float-left  h-5 w-5 appearance-none rounded-full border-2 border-solid border-secondary-500 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-checkbox before:shadow-transparent before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-black checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-black/60 focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-black/60 focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-checkbox checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] rtl:float-right dark:border-neutral-400 dark:checked:border-primary"
-                />
-                <label className="semi pl-2">PROFESSIONNEL</label>
-              </div>
-            </div>
-            <p className="italic text-sm pt-10">
-              * Tous les champs sont obligatoires
-            </p>
-          </div> */}
           <div className="pt-10">
             <div className="pb-5">
               <label className="semi ">CONSENTEMENT</label>
@@ -352,10 +358,28 @@ const Form = () => {
 
 export default Form;
 
-const cars = [
-  { image: "/compass-ehybrid.png", label: "COMPASS E-HYBRID" },
-  { image: "/renegade-ehybrid.png", label: "RENEGADE E-HYBRID" },
+// const cars = [
+//   { image: "/compass-ehybrid.png", label: "COMPASS E-HYBRID" },
+//   { image: "/renegade-ehybrid.png", label: "RENEGADE E-HYBRID" },
 
-  { image: "/avenger.png", label: "AVENGER" },
-  { image: "/grande-cherokee2.png", label: "GRANDE CHEROKEE" },
+//   { image: "/avenger.png", label: "AVENGER" },
+//   { image: "/grande-cherokee2.png", label: "GRANDE CHEROKEE" },
+// ];
+const cars = [
+  { image: "/avenger.png", label: "AVENGER", value: "Avenger" },
+  {
+    image: "/compass-ehybrid.png",
+    label: "COMPASS E-HYBRID",
+    value: "Compass Hybrid",
+  },
+  {
+    image: "/grande-cherokee2.png",
+    label: "GRANDE CHEROKEE",
+    value: "Grand Cherokee",
+  },
+  {
+    image: "/renegade-ehybrid.png",
+    label: "RENEGADE E-HYBRID",
+    value: "Renagde Hybrid",
+  },
 ];
