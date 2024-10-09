@@ -144,7 +144,8 @@ const Form = () => {
             name="retURL"
             value={`https://jeep-guide-dachat.vercel.app?step=dealers&&city=${address}`}
           />
-          {/* <input type="hidden" name="debug" value="1" /> */}
+
+          <input type="hidden" name="debug" value="1" />
           <input
             type="hidden"
             name="debugEmail"
