@@ -9,7 +9,7 @@ import { IoIosArrowBack } from "react-icons/io";
 const Form = () => {
   const { car, updateCar } = useCarStore();
   const [query, setQuery] = useState("");
-
+  console.log(car);
   const [clicked, setClicked] = useState("");
   const {
     updateVille,
@@ -39,7 +39,6 @@ const Form = () => {
     event.preventDefault();
     const form = event.target;
 
-    // Create a FormData object from the form
     const formData = new FormData(form);
 
     try {
@@ -95,39 +94,16 @@ const Form = () => {
         <form
           onSubmit={handleSubmit}
           // action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&amp;orgId=00D8d000009q2y7"
-          action="https://stellantis-e--leadinteg.sandbox.my.salesforce.com/services/data/v54.0/sobjects/Lead"
+          action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D8d000009q2y7"
           method="POST"
         >
           <input type="hidden" name="oid" value="00D8d000009q2y7" />
+          <input type="hidden" name="retURL" value="" />
           <input
-            type="hidden"
-            name="recordType"
-            id="recordType"
-            value="0128d000000DtwGAAS"
-          />
-          <input
-            type="hidden"
             id="00N8d00000UVYP7"
             name="00N8d00000UVYP7"
+            type="hidden"
             value="1"
-          />
-          <input
-            type="hidden"
-            id="00N8d00000UVYOu"
-            name="00N8d00000UVYOu"
-            value="83"
-          />
-          <input
-            type="hidden"
-            id="00N8d00000UVYPn"
-            name="00N8d00000UVYPn"
-            value="83-620"
-          />
-          <input
-            type="hidden"
-            id="Ticket_type__c"
-            name="Ticket_type__c"
-            value="Demande de Test Drive"
           />
           <input
             id="lead_source"
@@ -135,27 +111,42 @@ const Form = () => {
             type="hidden"
             value="event_website"
           />
+          <input type="hidden" name="recordType" value="0128d000000DtwF" />
+          <input
+            type="hidden"
+            id="00N8d00000UVYOu"
+            name="00N8d00000UVYOu"
+            value="57"
+            title="Marque d&#39;intérêt"
+          />
+          <input
+            type="hidden"
+            id="00N8d00000UVYP5"
+            name="00N8d00000UVYP5"
+            value="Devis commercial"
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 gap-x-10">
             <input
               type="text"
               hidden
-              id="Model"
-              name="Model"
+              id="00N8d00000UVYPn"
+              name="00N8d00000UVYPn"
               value={car}
               defaultValue={car}
             />
-            <input
+
+            {/* <input
               type="text"
               hidden
               id="Mode"
               name="Mode"
               value="Essai"
               defaultValue="Essai"
-            />
+            /> */}
             <div className="flex flex-col">
               <select
-                name="Salutation"
-                id="Salutation"
+                name="salutation"
+                id="salutation"
                 onChange={(e) => updateCivilité(e.target.value)}
                 className="semi bg-white border-b h-16 pl-3 "
               >
@@ -175,16 +166,16 @@ const Form = () => {
             </div>
             <div></div>
             <input
-              name="FirstName"
-              id="FirstName"
+              name="first_name"
+              id="first_name"
               onChange={(e) => updatePrénom(e.target.value)}
               type="text"
               placeholder="PRÉNOM*"
               className="semi bg-white border-b h-16 pl-3  placeholder:text-black placeholder:pl-2"
             />
             <input
-              name="LastName"
-              id="LastName"
+              name="last_name"
+              id="last_name"
               onChange={(e) => updateNom(e.target.value)}
               type="text"
               placeholder="NOM*"
@@ -200,16 +191,16 @@ const Form = () => {
               className="semi bg-[#F4F4F4] border border-black h-12 pl-2 placeholder:text-black placeholder:pl-2"
             /> */}
             <input
-              name="Email"
-              id="Email"
+              name="email"
+              id="email"
               onChange={(e) => updateEmail(e.target.value)}
               type="email"
               placeholder="E-MAIL*"
               className="semi bg-white border-b h-16 pl-3 placeholder:text-black placeholder:pl-2"
             />
             <input
-              name="MobilePhone"
-              id="MobilePhone"
+              name="mobile"
+              id="mobile"
               onChange={(e) => updateTel(e.target.value)}
               type="tel"
               maxLength={13}
@@ -218,8 +209,8 @@ const Form = () => {
             />
             <div className="relative w-full">
               <input
-                name="City"
-                id="City"
+                name="city"
+                id="city"
                 onClick={() => setClicked(true)}
                 onChange={(e) => {
                   setQuery(e.target.value);

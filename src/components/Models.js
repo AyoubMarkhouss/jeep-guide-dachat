@@ -40,8 +40,8 @@ const Models = () => {
                 <label className="semi text-lg">{item.label}</label>
                 <a className="cursor-pointer">
                   <button
-                    id={item.label}
-                    value={item.label}
+                    id={item.value}
+                    value={item.value}
                     name="model"
                     className="flex text-lg  font-semibold items-center"
                   >
@@ -64,8 +64,20 @@ const Models = () => {
 export default Models;
 
 const cars = [
-  { image: "/avenger.png", label: "AVENGER" },
-  { image: "/compass-ehybrid.png", label: "COMPASS E-HYBRID" },
-  { image: "/grande-cherokee2.png", label: "GRANDE CHEROKEE" },
-  { image: "/renegade-ehybrid.png", label: "RENEGADE E-HYBRID" },
+  { image: "/avenger.png", label: "AVENGER", value: "Avenger" },
+  {
+    image: "/compass-ehybrid.png",
+    label: "COMPASS E-HYBRID",
+    value: "Compass Hybrid",
+  },
+  {
+    image: "/grande-cherokee2.png",
+    label: "GRANDE CHEROKEE",
+    value: "Grand Cherokee",
+  },
+  {
+    image: "/renegade-ehybrid.png",
+    label: "RENEGADE E-HYBRID",
+    value: "Renagde Hybrid",
+  },
 ];
