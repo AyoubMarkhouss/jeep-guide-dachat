@@ -17,7 +17,9 @@ const Index = () => {
   const dealers = searchParams
     ? searchParams?.split("=")?.[1].split("&&")?.[0]
     : "";
-  const city = searchParams.split("=")[2].split("&&")[0];
+  const city = searchParams
+    ? searchParams?.split("=")?.[2]?.split("&&")?.[0]
+    : "";
   const firstName = searchParams
     ? searchParams
         ?.split("&&")
