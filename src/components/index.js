@@ -20,15 +20,15 @@ const Index = () => {
   const city = searchParams.split("=")[2].split("&&")[0];
   const firstName = searchParams
     ? searchParams
-        .split("&&")
-        .filter((first) => first.includes("firstName"))[0]
-        .split("=")[1]
+        ?.split("&&")
+        ?.filter((first) => first.includes("firstName"))[0]
+        ?.split("=")[1]
     : "";
   const lastName = searchParams
     ? searchParams
-        .split("&&")
-        .filter((first) => first.includes("lastName"))[0]
-        .split("=")[1]
+        ?.split("&&")
+        ?.filter((first) => first.includes("lastName"))[0]
+        ?.split("=")[1]
     : "";
 
   const fullName = `${lastName} ${firstName}`;
@@ -51,7 +51,7 @@ const Index = () => {
         {dealers === "dealers" && !mapClicked && (
           <Dealers city={city} done={dealers === "dealers"} />
         )}
-        {mapClicked && <Merci fullName={fullName} />}
+        {mapClicked && <Merci fullName={fullName} city={city} />}
       </div>
     </div>
   );

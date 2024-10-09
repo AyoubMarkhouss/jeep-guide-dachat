@@ -4,7 +4,7 @@ import { mapStore } from "../store/map";
 import { useInfoStore } from "../store/carInfo";
 import { RiArrowRightSLine } from "react-icons/ri";
 
-const Merci = ({ fullName }) => {
+const Merci = ({ fullName, city }) => {
   const { mapClicked } = mapStore();
   const { prénom, nom, label, address } = useInfoStore();
   const searchParams = window.location.search;
