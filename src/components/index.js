@@ -14,7 +14,9 @@ const Index = () => {
   const { car } = useCarStore();
   const searchParams = window.location.search;
   console.log(searchParams.split("=")[1] === "dealers");
-  const dealers = searchParams.split("=")[1].split("&&")[0];
+  const dealers = searchParams
+    ? searchParams?.split("=")?.[1].split("&&")?.[0]
+    : "";
   const city = searchParams.split("=")[2];
   console.log(city);
   return (
