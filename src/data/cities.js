@@ -4,6 +4,7 @@ export const citiesData = [
     dealers: [
       {
         name: "LA CONTINENTALE DE SERVICE ABDELMOUMEN",
+
         address: "angle bd abdelmoumen et rue Soumaya Palmier",
         number: "0522776600",
       },

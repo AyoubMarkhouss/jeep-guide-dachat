@@ -8,7 +8,7 @@ import { IoMdCall } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 const Map = ({ done, city }) => {
   const { updateMapClicked } = mapStore();
-  const { updateAddress } = useInfoStore();
+  const { updateAddress, setMap } = useInfoStore();
   const [selectedMap, setSelectedMap] = useState("");
   return (
     <motion.div
@@ -38,7 +38,7 @@ const Map = ({ done, city }) => {
             ?.dealers.map((bb, ik) => (
               <div
                 onClick={() => {
-                  setSelectedMap(bb.name);
+                  setMap(bb.address);
                   updateAddress(bb.name);
                 }}
                 key={ik}

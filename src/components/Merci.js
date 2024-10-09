@@ -6,7 +6,7 @@ import { RiArrowRightSLine } from "react-icons/ri";
 
 const Merci = ({ fullName, city }) => {
   const { mapClicked } = mapStore();
-  const { prénom, nom, label, address } = useInfoStore();
+  const { prénom, nom, address, map } = useInfoStore();
   const searchParams = window.location.search;
   console.log(searchParams);
   return (
@@ -30,7 +30,7 @@ const Merci = ({ fullName, city }) => {
         <p className="semi text-center">Votre demande a été enregistrée.</p>
         <br />
         <br />
-        <p className="semi text-lg text-center">{label}</p>
+        <p className="semi text-lg text-center">{map}</p>
         <p className="semi text-lg text-center">{address}</p>
       </div>
       <div className="flex justify-center items-center pt-14">
