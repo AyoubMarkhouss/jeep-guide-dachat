@@ -15,20 +15,20 @@ const Index = () => {
   const searchParams = window.location.search;
   console.log(searchParams.split("=")[1] === "dealers");
   const dealers = searchParams
-    ? searchParams?.split("=")?.[1].split("&&")?.[0]
+    ? searchParams?.split("=")?.[1].split("&")?.[0]
     : "";
   const city = searchParams
-    ? searchParams?.split("=")?.[2]?.split("&&")?.[0]
+    ? searchParams?.split("=")?.[2]?.split("&")?.[0]
     : "";
   const firstName = searchParams
     ? searchParams
-        ?.split("&&")
+        ?.split("&")
         ?.filter((first) => first.includes("firstName"))[0]
         ?.split("=")[1]
     : "";
   const lastName = searchParams
     ? searchParams
-        ?.split("&&")
+        ?.split("&")
         ?.filter((first) => first.includes("lastName"))[0]
         ?.split("=")[1]
     : "";
