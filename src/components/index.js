@@ -31,7 +31,7 @@ const Index = () => {
         {searchParams.split("=")[1] !== "dealers" && car === "" && <Models />}
         {searchParams.split("=")[1] !== "dealers" && !done && <Form />}
         {searchParams.split("=")[1] === "dealers" && !mapClicked && (
-          <Dealers done={searchParams.split("=")[1] !== "dealers"} />
+          <Dealers done={searchParams.split("=")[1] === "dealers"} />
         )}
         {mapClicked && <Merci />}
       </div>
