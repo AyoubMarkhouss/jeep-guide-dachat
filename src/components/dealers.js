@@ -6,8 +6,7 @@ import { citiesData } from "../data/cities";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { IoMdCall } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
-const Map = ({ done }) => {
-  const { address } = useInfoStore();
+const Map = ({ done, city }) => {
   const { updateMapClicked } = mapStore();
   const { updateAddress } = useInfoStore();
   const [selectedMap, setSelectedMap] = useState("");
@@ -30,12 +29,12 @@ const Map = ({ done }) => {
       </p>
       <div className=" left-3  top-12 md:top-6">
         <p className="semi pl-5  text-2xl py-5">
-          {address}
+          {city}
           <p className="border-b pt-3 w-28 border-[#FFBA00]"></p>
         </p>
         <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-4 mx-3">
           {citiesData
-            .filter((kik) => kik.city === address)[0]
+            .filter((kik) => kik.city === city)[0]
             ?.dealers.map((bb, ik) => (
               <div
                 onClick={() => {
@@ -48,7 +47,7 @@ const Map = ({ done }) => {
                 <p className="semi pb-5">{bb.name}</p>
                 <p className="text-sm pb-5 flex items-center gap-x-2">
                   <FaLocationDot />
-                  {bb.address}
+                  {bb.city}
                 </p>
                 <p className="pb-5 flex items-center gap-x-2">
                   <IoMdCall />

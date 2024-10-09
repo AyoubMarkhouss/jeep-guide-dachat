@@ -25,8 +25,9 @@ const Form = () => {
     updateMarketing,
     updateDone,
     setMap,
+    address,
   } = useInfoStore();
-
+  console.log(address);
   const fixedData = citiesData.map((items) => items.city);
   const filteredPeople =
     query === ""
@@ -141,13 +142,13 @@ const Form = () => {
           <input
             type="hidden"
             name="retURL"
-            value="https://jeep-guide-dachat.vercel.app?step=dealers"
+            value={`https://jeep-guide-dachat.vercel.app?step=dealers&&city=${address}`}
           />
           {/* <input type="hidden" name="debug" value="1" /> */}
           <input
             type="hidden"
             name="debugEmail"
-            value="mohamed.cherkaoui@nbs-consulting.net"
+            value="ayoub.markhouss@gmail.com"
           />
           <input type="hidden" name="oid" value="00D8d000009q2y7" />
 
