@@ -30,8 +30,8 @@ const Merci = ({ fullName, city }) => {
         <p className="semi text-center">Votre demande a été enregistrée.</p>
         <br />
         <br />
-        <p className="semi text-lg text-center">{map}</p>
         <p className="semi text-lg text-center">{address}</p>
+        <p className="semi text-lg text-center">{map}</p>
       </div>
       <div className="flex justify-center items-center pt-14">
         <h2 className="semi text-xl">Quoi d'autre?</h2>
