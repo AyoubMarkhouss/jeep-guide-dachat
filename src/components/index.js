@@ -13,7 +13,8 @@ const Index = () => {
   const { mapClicked } = mapStore();
   const { car } = useCarStore();
   const searchParams = window.location.search;
-
+  console.log(searchParams.split("=")[1] === "dealers");
+  console.log(searchParams.split("=")[1]);
   return (
     <div className="relative bg-white">
       <div
@@ -27,9 +28,11 @@ const Index = () => {
         )}
       >
         {/* <Steps /> */}
-        {car === "" && <Models />}
-        {!done && <Form />}
-        {searchParams.split("=")[1] === "dealers" && <Dealers />}
+        {searchParams.split("=")[1] !== "dealers" && car === "" && <Models />}
+        {searchParams.split("=")[1] !== "dealers" && !done && <Form />}
+        {searchParams.split("=")[1] === "dealers" && !mapClicked && (
+          <Dealers done={searchParams.split("=")[1] !== "dealers"} />
+        )}
         {mapClicked && <Merci />}
       </div>
     </div>
