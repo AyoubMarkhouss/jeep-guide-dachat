@@ -63,14 +63,15 @@ const cars = [
     label: "COMPASS E-HYBRID",
     value: "Compass Hybrid",
   },
-  {
-    image: "/grande-cherokee2.png",
-    label: "GRANDE CHEROKEE",
-    value: "Grand Cherokee",
-  },
+
   {
     image: "/renegade-ehybrid.png",
     label: "RENEGADE E-HYBRID",
     value: "Renagde Hybrid",
+  },
+  {
+    image: "/grande-cherokee2.png",
+    label: "GRANDE CHEROKEE",
+    value: "Grand Cherokee",
   },
 ];
