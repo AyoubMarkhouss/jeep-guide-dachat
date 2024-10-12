@@ -146,8 +146,8 @@ const Form = () => {
             name="retURL"
             value={`https://jeep-guide-dachat.vercel.app?step=dealers&&city=${address}&&firstName=${prénom}&&lastName=${nom}`}
           />
-          {/* 
-          <input type="hidden" name="debug" value="1" />
+
+          {/* <input type="hidden" name="debug" value="1" />
 
           <input
             type="hidden"
@@ -371,20 +371,21 @@ export default Form;
 //   { image: "/grande-cherokee2.png", label: "GRANDE CHEROKEE" },
 // ];
 const cars = [
-  { image: "/avenger.png", label: "AVENGER", value: "Avenger" },
+  { image: "/avenger.png", label: "Avenger", value: "Avenger" },
   {
     image: "/compass-ehybrid.png",
-    label: "COMPASS E-HYBRID",
+    label: "Compass Hybrid",
     value: "Compass Hybrid",
+  },
+
+  {
+    image: "/renegade-ehybrid.png",
+    label: "Renagde Hybrid",
+    value: "Renagde Hybrid",
   },
   {
     image: "/grande-cherokee2.png",
-    label: "GRANDE CHEROKEE",
+    label: "Grand Cherokee",
     value: "Grand Cherokee",
-  },
-  {
-    image: "/renegade-ehybrid.png",
-    label: "RENEGADE E-HYBRID",
-    value: "Renagde Hybrid",
   },
 ];

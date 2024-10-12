@@ -57,21 +57,21 @@ const Models = () => {
 export default Models;
 
 const cars = [
-  { image: "/avenger.png", label: "AVENGER", value: "Avenger" },
+  { image: "/avenger.png", label: "Avenger", value: "Avenger" },
   {
     image: "/compass-ehybrid.png",
-    label: "COMPASS E-HYBRID",
+    label: "Compass Hybrid",
     value: "Compass Hybrid",
   },
 
   {
     image: "/renegade-ehybrid.png",
-    label: "RENEGADE E-HYBRID",
+    label: "Renagde Hybrid",
     value: "Renagde Hybrid",
   },
   {
     image: "/grande-cherokee2.png",
-    label: "GRANDE CHEROKEE",
+    label: "Grand Cherokee",
     value: "Grand Cherokee",
   },
 ];
