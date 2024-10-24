@@ -15,7 +15,7 @@ const Models = () => {
             <div
               key={item.label}
               className="mb-6"
-              onClick={() => updateCar(item.label)}
+              onClick={() => updateCar(item.value)}
             >
               <div className="flex justify-center">
                 <img
@@ -60,13 +60,13 @@ const cars = [
   { image: "/avenger.png", label: "Avenger", value: "Avenger" },
   {
     image: "/compass-ehybrid.png",
-    label: "Compass Hybrid",
+    label: "Compass E-hybrid",
     value: "Compass Hybrid",
   },
 
   {
     image: "/renegade-ehybrid.png",
-    label: "Renagde Hybrid",
+    label: "Renegade E-hybrid",
     value: "Renagde Hybrid",
   },
   {

@@ -120,10 +120,10 @@ const Form = () => {
       <div className="col-span-3 md:col-span-1 mb-5 md:mb-0">
         <h2 className="text-lg">Votre sélection:</h2>
         <h2 className="semi text-lg">
-          {cars.filter((cr) => cr.label === car)[0]?.label}
+          {cars.filter((cr) => cr.value === car)[0]?.label}
         </h2>
         <img
-          src={cars.filter((cr) => cr.label === car)[0]?.image}
+          src={cars.filter((cr) => cr.value === car)[0]?.image}
           className="w-96"
         />
         <button
@@ -374,13 +374,13 @@ const cars = [
   { image: "/avenger.png", label: "Avenger", value: "Avenger" },
   {
     image: "/compass-ehybrid.png",
-    label: "Compass Hybrid",
+    label: "Compass E-hybrid",
     value: "Compass Hybrid",
   },
 
   {
     image: "/renegade-ehybrid.png",
-    label: "Renagde Hybrid",
+    label: "Renegade E-hybrid",
     value: "Renagde Hybrid",
   },
   {
@@ -389,3 +389,4 @@ const cars = [
     value: "Grand Cherokee",
   },
 ];
+
